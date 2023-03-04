@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/admin/edit.css">
+    <title>Edit Product</title>
+</head>
+
+<body>
+    <h1>PRODUCT NAME</h1>
+    <div style="position: absolute; width: 95%;">
+        <div class="left">
+            <ul class="editNav">
+                <li class="editNav-group">
+                    <h2>PRODUCT INFORMATION</h2>
+                    <ul class="editNav-group-sections">
+                        <li class="editNav-section">
+                            <a href="#basicInfo">Basic Information</a>
+                        </li>
+                        <li class="editNav-section">
+                            <a href="#categories">Categories</a>
+                        </li>
+                        <li class="editNav-section">
+                            <a href="#images">Images</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="editNav-group">
+                    <h2>PRODUCT OPTIONS</h2>
+                    <ul class="editNav-group-sections">
+                        <li class="editNav-section">
+                            <a href="#variations">Variations</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <div>
+                <div class="group-title">
+                    <h2>Product Information</h2>
+                </div>
+                <div class="group-sections">
+                    <div class="panel">
+                        <div class="panel-body" id="basicInfo">
+                            <div class="panel-header">
+                                <h2>Basic Information</h2>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label" id="productLabel-name" for="productInput-name">
+                                        <span>Product ID</span>
+                                        <span class="form-small-required">*</span>
+                                    </label>
+                                    <div class="form-input-container">
+                                        <input class="form-input" id="productInput-name" name="productInput-name"
+                                            placeholder="Sample Product ID" type="text" required>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" id="productLabel-sku" for="productInput-sku">
+                                        <span>Product Name</span>
+                                        <span class="form-small-required">*</span>
+                                    </label>
+                                    <div class="form-input-container">
+                                        <input class="form-input" id="productInput-sku" name="productInput-sku" type="text" placeholder="Sample Product Name" aria-describedby="productLabel-sku" required>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" id="productLabel-sku" for="productInput-sku">
+                                        <span>Price</span>
+                                        <span class="form-small-required">*</span>
+                                    </label>
+                                    <div class="form-input-container">
+                                        <input class="form-input" id="productInput-sku" name="productInput-sku" type="text" placeholder="1,000,000.00" aria-describedby="productLabel-sku" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body" id="categories">
+                            <h2>Categories</h2>
+                        </div>
+                        <div class="panel-body" id="images">
+                            <h2>Images</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="group-title">
+                    <h2>Product Options</h2>
+                </div>
+                <div class="group-sections">
+                    <div class="panel">
+                        <div class="panel-body" id="variations">
+                            <h2>Variations</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
