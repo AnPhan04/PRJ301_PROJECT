@@ -1,0 +1,105 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.sp4 {
+	margin-top: 15px;
+}
+
+img.trai3_anhto {
+	padding-left: 1.6px;
+	width: 100%;
+}
+div.trai3_anhnho {
+	width: 50%;
+	 float: left;
+}
+
+div.trai3_anhnho img{
+    width: 100%;
+   /* float: left;*/
+    padding: 1.6px;
+}
+div.trai3_anhnho1 {
+	width: 33.3333%;
+	 float: left;
+	 padding: 1px;
+}
+
+div.trai3_anhnho1 img{
+    width: 100%;
+  
+}
+/*hết sp3 khối trái*/
+div.sp3_phai {
+	padding-left:35px;
+	font-size: 24px;
+	font-weight: 500;
+	font-family: 'futura-REGULAR', sans-serif;
+}
+p.gia {
+	padding: 0px;
+}
+p.chinhsach{
+	font-size: 15px;
+}	
+p.tinhtrang{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+p.kichthuoc a.size {
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+	padding: 10px 15px;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+p.kichthuoc a.size:hover {
+	background: black;
+	color: white;
+}
+p.khoiluong {
+	font-size: 15px;
+}
+p.khoiluong button {
+	width: 45px;
+	height: 40px;
+	border: none;
+	background: gray;
+	color: #F3F4F4;
+}
+p.khoiluong input {
+	width: 64px;
+    height: 40px;
+    text-align: center;
+}
+div.sp3_nut {
+	/*display: flex;*/
+	/*justify-content: space-between;*/
+}
+
+div.mua {
+	float: left;
+	padding: 10px 40px;
+	border: 1px solid black;
+	cursor: pointer;
+	background: black;
+	color: white;
+	margin-right: 20px;
+}
+div.tuvan {
+	float: left;
+	padding: 10px 40px;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.dunglai1{
+	position: fixed;
+	top:0px;
+	right:0px;
+}
