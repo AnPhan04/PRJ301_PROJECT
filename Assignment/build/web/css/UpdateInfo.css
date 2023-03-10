@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.col-xl-3.uh_3_trai.update {
+	height: 45%;
+}
+
+.col-xl-6.uh_3_phai.update {
+	margin-left: 40px;
+}
+b.update {
+	text-align: center;
+	font-size: 25px;
+}
+.submit_wrapper.update {
+	    justify-content: center;
+	   
+}
+
+div.submit button.update {
+	font-size: 20px;
+	 text-transform: uppercase;
+	 background: #1B4EA0;
+	 border: none;
+}

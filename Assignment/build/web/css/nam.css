@@ -1,0 +1,40 @@
+*{
+	margin: 0;padding: 0;
+}
+
+.n3 a{
+	display: block;
+	text-decoration: none;
+	color: black;
+	padding: 10px;
+	position: relative;
+}
+.n3 {
+	display: flex;
+background: #F5F5F5;
+padding-left: 80px;
+font-size: 13px;
+}
+
+.n3 a:after {
+	    content: "";
+    display: block;
+    width: 1px;
+    height: 15px;
+    background: #80808052;
+    position: absolute;
+    top: 13px;
+    right: -1px;
+    transform: rotate(30deg);
+}
+
+.n3 a:last-child:after {
+    display: none;
+}
+
+/*hết khổi 3*/
+.banner img {
+	width: 100%;
+	height: 100%;
+	background: content-box;
+}
