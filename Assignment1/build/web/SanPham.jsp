@@ -140,9 +140,11 @@
                             <i class="fa-regular fa-heart"></i>
                         </div>
                         <div class="icon1">
-                            <div class="khoiden2">${sessionScope.sizeCart}</div>
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <!--    class="fa fa-chevron-down" -->
+                            <a href="ShowCart" style="color: black;">
+                                <div class="khoiden2">${sessionScope.sizeCart}</div>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <!--    class="fa fa-chevron-down" -->
+                            </a>
                         </div>
                     </div>
 

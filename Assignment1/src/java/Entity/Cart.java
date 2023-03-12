@@ -6,10 +6,6 @@ package Entity;
 
 import java.util.Vector;
 
-/**
- *
- * @author Tran Tuan
- */
 public class Cart {
 
     private Vector<Item> items;
@@ -42,6 +38,7 @@ public class Cart {
 
     //Lấy ra số lượng của item khi thêm vào giỏ hàng
     public int getQuantityByID(String id, int size) {
+
         return getItemByID(id, size).getQuantity();
     }
 

@@ -1,10 +1,14 @@
-
+<%-- 
+    Document   : Cart
+    Created on : Mar 12, 2023, 11:32:45 PM
+    Author     : ASUS
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib  prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-US">
     <head>
         <title></title>
         <meta charset="utf-8">
@@ -14,14 +18,15 @@
 
         <!-- Embed CSS  here-->
         <link rel="stylesheet" type="text/css" href="css/1.css">
-        <link rel="stylesheet" type="text/css" href="css/nam.css">
-        <link rel="stylesheet" type="text/css" href="css/SanPham.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <link rel="stylesheet" type="text/css" href="fonts/css/all.min.css">
 
+        <script src="https://kit.fontawesome.com/d532025e5e.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="khoi">
@@ -52,8 +57,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
 
-                        <li class="nav-item dropdown">
-                            <a   class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li  class="nav-item dropdown">
+                            <a  class="nav-link dropdown-toggle" href="Nam.html" id="navbarDropdownMenuLink" role="button"  aria-expanded="false">
                                 NAM
                                 <i class="fa fa-chevron-down"></i>
                                 <div class="thanhchay"></div>
@@ -70,7 +75,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="Nu.html" id="navbarDropdownMenuLink" role="button"  aria-expanded="false">
                                 NỮ
                                 <i class="fa fa-chevron-down"></i>
                                 <div class="thanhchay"></div>
@@ -87,7 +92,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Khuyến Mãi</a>
+                            <a class="nav-link" href="Nam.html">Khuyến Mãi</a>
                         </li>
                     </ul>
                     <div class="icon">
@@ -112,11 +117,14 @@
                                 <div class="auth-form__header">
                                     <h3 class="auth-form__heading">Đăng Nhập</h3>
                                 </div>
-                                <div class="auth-form__form">
-                                    <input type="text" class="auth-form__input"  placeholder="Email/Số điện thoại/Tên đăng nhập">
-                                    <input type="text" class="auth-form__input"  placeholder="Mật khẩu">
-                                    <button class="btn login">Đăng Nhập</button>
-                                </div>
+
+                                <form action="Login">
+                                    <div class="auth-form__form">
+                                        <input name="Username" type="text" class="auth-form__input"  placeholder="Email/Số điện thoại/Tên đăng nhập">
+                                        <input name="Password" type="text" class="auth-form__input"  placeholder="Mật khẩu">
+                                        <button class="btn login">Đăng Nhập</button>
+                                    </div>
+                                </form>
                                 <div class="auth-form__supportlogin">
                                     <a class="auth-form__supportlogin1">Quên mật khẩu</a>
                                     <a class="auth-form__supportlogin2">Đăng nhập với SMS</a>
@@ -134,119 +142,104 @@
                                     <p class="auth-form__login">Bạn mới biết đến Bitis?  <a href="DangKi.jsp" class="auth-form__login">Đăng ký</a></p>
                                 </div>
                             </div>
+
+
                         </div>
                         <div class="icon1">
                             <div class="khoiden2">4</div>
                             <i class="fa-regular fa-heart"></i>
                         </div>
                         <div class="icon1">
-                            <a href="ShowCart" style="color: black;">
-                                <div class="khoiden2">${sessionScope.sizeCart}</div>
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                <!--    class="fa fa-chevron-down" -->
-                            </a>
+                            <div class="khoiden2">${sessionScope.sizeCart}</div>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <!--    class="fa fa-chevron-down" -->
                         </div>
                     </div>
 
                 </div>
             </div>
         </nav>
-        <!--  hết khối 2 -->
-        <div class="container-fluid">
+
+
+
+
+
+
+        <section id="cart-container" class="container my-5">
+            <table width = "100%">
+                <thead><tr>
+                        <td></td>
+                        <td>Hình Ảnh</td>
+                        <td>Tên Sản Phẩm</td>
+                        <td>Giá tiền</td>
+                        <td>Size</td>
+                        <td>Số Lượng</td>
+                        <td>Tổng tiền</td>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:set var="o" value="${requestScope.cart}" />
+                    <c:forEach items="${o.items}" var="i">
+                        <tr>
+                            <td>
+                                <form action="ProcessServlet" method="post">
+                                    <input type="hidden" name="id" value="${i.product.productID}"/>
+                                    <input type="hidden" name="size" value="${i.size}"/>
+                                    <input type="submit" value="Xóa" />
+
+                                </form>
+                            </td>
+                            <td><img src="${i.product.productImg[0]}" alt=""></td>
+                            <td><h5>${i.product.productName}</h5></td>
+                            <td><h5>${i.product.price}</h5></td>
+                            <td><h5>${i.size}</h5></td>
+                            <td class="numProduct">
+                                <button><a href="ProcessServlet?num=-1&size=${i.size}&id=${i.product.productID}">-</a></button>
+                                <input type="text" readonly value="${i.quantity}" />
+                                <button><a href="ProcessServlet?num=1&size=${i.size}&id=${i.product.productID}">+</a></button>
+                            </td>
+                            <td><h5><fmt:formatNumber pattern="##.#" value="${i.quantity*i.product.price}"/></h5></td>
+                        </tr>
+                    </c:forEach> 
+                </tbody>
+            </table>
+        </section>
+        <section id="cart-bottom" class="container">
             <div class="row">
-                <div class="col-xl-12 n3">
-                    <a href="" title="">Trang chủ</a>
-
-                    <a href="" title="">${requestScope.tensp}</a>  
-                </div> 
-            </div>
-        </div>
-        <!--     hết khối 3 -->
-        <div class="container">
-            <div class="row sp4">
-                <div class="col-xl-6 sp3_trai" >
-                    <c:set var="t" value="0" />
-                    <c:forEach items="${requestScope.list}" var="s">
-                        <img src="${s.productImg[0]}" alt="" class="trai3_anhto">
-
-                        <div class="trai3_anhnho">
-                            <img src="${s.productImg[1]}" alt="">
-                        </div> 
-                        <div class="trai3_anhnho">   
-                            <img src="${s.productImg[2]}" alt="">
-                        </div>
-                        <div class="trai3_anhnho">
-                            <img src="${s.productImg[3]}" alt="">
-                        </div>
-                        <div class="trai3_anhnho">    
-                            <img src="${s.productImg[4]}" alt="">
-                        </div>
-
-                        <div class="trai3_anhnho1">    
-                            <img src="${s.productImg[5]}" alt="">
-                        </div>
-                        <div class="trai3_anhnho1">    
-                            <img src="${s.productImg[6]}" alt="">
-                        </div>
-                        <div class="trai3_anhnho1">    
-                            <img src="${s.productImg[7]}" alt="">
-                        </div>
-                    </c:forEach>                  
+                <div class="coupon col-lg-6 col-md-6 col-12 mb-4">
+                    <div>
+                        <h5>COUPON</h5>
+                        <p>Mã Giảm Giá</p>
+                        <input type="text" placeholder="Nhập">
+                        <button>Nhập mã</button>
+                    </div>
                 </div>
-                <!-- hết sp3 trái -->
-                <div class="col-xl-6 sp3_phai">
-                    <form action="" name="f" method="post" >
-                        <c:forEach items="${requestScope.list}" var="s">
-
-                            <p class="name">
-                                ${s.productName}
-                            </p>
-                            <p class="gia">${s.price} ₫</p>
-                        </c:forEach>
-                        <p class="chinhsach">
-                            Mua trước trả sau với Kredivo <br>
-                            Trả sau lên đến 12 tháng | Ưu đãi 50% tối đa 100k | Tải app và đăng ký ngay 
-                            <a href="" title="">tại đây</a>
-                        </p>
-                        <p class="tinhtrang">
-                            Tình trạng: Còn hàng (${requestScope.soluong})
-                        </p>
-                        <p style="font-size: 15px;">Kích Thước:</p>
-                        <div class="kichthuoc">
-                            <div class="size"<c:if test="${requestScope.size==39}"> data-size="${requestScope.size}"</c:if> >
-                                    <input  type="button" name="size" 
-                                            value="39" onclick="buy('${requestScope.productID}', '39')">
-
-                            </div>    
-                            <div class="size" <c:if test="${requestScope.size==40}"> data-size="${requestScope.size}"</c:if>>
-                                <input type="button" name="size" value="40" onclick="buy('${requestScope.productID}', '40')">
-                            </div>    
-                            <div class="size" <c:if test="${requestScope.size==41}"> data-size="${requestScope.size}"</c:if>>
-                                <input type="button" name="size" value="41" onclick="buy('${requestScope.productID}', '41')">
-                            </div>    
-                            <div class="size" <c:if test="${requestScope.size==42}"> data-size="${requestScope.size}"</c:if>>
-                                <input type="button" name="size" value="42" onclick="buy('${requestScope.productID}', '42')">
-                            </div>    
-
+                <div class="total col-lg-6 col-md-6 col-12 mb-4">
+                    <div>
+                        <h5>Giỏ Hàng</h5>
+                        <div class="d-flex justify-content-between">
+                            <h6>Giá tiền</h6>
+                            <p><fmt:formatNumber pattern="##.#" value="${requestScope.total}"/></p>
                         </div>
-                        <p class="khoiluong">
-                            <button><a href="">-</a></button>
-                            <input type="number" name="num" value="1" >
-                            <button><a href="">+</a></button>
-                        </p>
-                        <div class="sp3_nut">
-                            <button type="submit" class="mua" onclick="addcart('${requestScope.productID}', '${requestScope.size}')">
-                                Thêm vào giỏ
-                            </button>
-                            <div class="tuvan">
-                                Tư vấn:19002126
-                            </div>
+                        <div class="d-flex justify-content-between">
+                            <h6>Shipping</h6>
+                            <p>FREE</p>
                         </div>
-                    </form>
+                        <hr class="second-hr">
+                        <div class="d-flex justify-content-between">
+                            <h6>Tổng đơn hàng</h6>
+                            <p><fmt:formatNumber pattern="##.#" value="${requestScope.total}"/></p>
+                        </div>
+                        <button class="ml-auto">Thanh Toán Ngay</button>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- hết sp3 phải -->
+            </div>                     
+
+        </section> 
+
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12 khoi14">
@@ -350,27 +343,11 @@
                 </div>
             </div>
         </div>
-
-
-
-
         <script src="js/1.js"></script>
-        <script src="js/SanPham.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
     </body>
 
-</html>
-<script type="text/javascript">
-                                function buy(id, size) {
+</html>                         
 
-                                    document.f.action = "SanPham?proID=" + id + "&size=" + size;
-                                    document.f.submit();
-                                }
-                                function addcart(id, size) {
-                                    var m = document.f.num.value;
-                                    document.f.action = "BuyServlet?proID=" + id + "&size=" + size + "&num=" + m;
-                                    document.f.submit();
-                                }
-</script>
 

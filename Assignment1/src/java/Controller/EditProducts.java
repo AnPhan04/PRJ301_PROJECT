@@ -45,23 +45,6 @@ public class EditProducts extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        try {
-//            String productID = request.getParameter("productID");
-//            DAOProduct prodDao = new DAOProduct();
-//            int row = 0;
-//            String newName = request.getParameter("productName");
-//            double newPrice = Double.parseDouble(request.getParameter("price"));
-//            row = prodDao.updateProduct(new Product(prodID, newName, newPrice));
-//            if(row < 1) {
-//                throw new Exception();
-//            } else {
-//                response.sendRedirect("ViewProducts");
-//            }
-//
-//        } catch (Exception e) {
-//            request.setAttribute("error", "error");
-//            request.getRequestDispatcher("admin/EditProducts.jsp").forward(request, response);
-//        }
         try {
             String productID = request.getParameter("productID");
             DAOProduct prodDao = new DAOProduct();
@@ -80,6 +63,3 @@ public class EditProducts extends HttpServlet {
         }
     }
 }
-
-
-//            response.sendRedirect("admin/Error.jsp");

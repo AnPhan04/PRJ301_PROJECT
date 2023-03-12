@@ -17,6 +17,29 @@ import java.util.Vector;
  * @author Tran Tuan
  */
 public class DAOProduct extends ConnectDB {
+    public Product getProductByID(String id) {
+        String sql="select * from Product where ProdID='"+id+"'";
+        try {
+            PreparedStatement st=conn.prepareStatement(sql);
+            ResultSet rs=st.executeQuery();
+            while(rs.next()) {
+
+               String cateID=rs.getString(1);
+               String productID=rs.getString(2);               
+               String productName=rs.getString(3);
+               String productImg=rs.getString(4);
+               double price=rs.getDouble(5);
+               
+               String img[]=productImg.split(",");
+               
+               Product pro=new Product(productID, productName, img, price);
+               return  pro;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    } 
 
     public int updateProduct(Product product) {
         int row = 0;
