@@ -56,7 +56,7 @@
             </div>
 
             <div class="right">
-                <form action="<%=request.getContextPath()%>/EditProducts?productID=<%=product.getProductID()%>&size=<%=item.getSize()%>" method="post">
+                <form action="<%=request.getContextPath()%>/EditProducts?productID=<%=product.getProductID()%>" method="post">
                     <!--Product Information - Product - Product-->
                     <div>
                         <div class="group-title">
@@ -96,7 +96,7 @@
                                                 <span class="form-small-required">*</span>
                                             </label>
                                             <div class="form-input-container">
-                                                <input class="form-input" name="" type="number" value="<%=product.getPrice()%>" required>
+                                                <input class="form-input" name="price" type="number" value="<%=product.getPrice()%>" required>
                                             </div>
                                         </div>
                                     </div>

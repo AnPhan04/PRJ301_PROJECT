@@ -22,28 +22,28 @@ import org.apache.tomcat.jakartaee.bcel.Const;
  */
 public class DAOItem extends ConnectDB {
     
-    public void updateItem(Item item) {
-        
-    }
-//    public int updateItem(Item item) {
-//        int row = 0;
-//        try {
-//            ConnectDB db = new ConnectDB();
-//            if (db.conn != null) {
-//                String sql = "UPDATE Prod_Variant SET stock = ? WHERE prodID = ? AND size = ?";
-//                PreparedStatement st = db.conn.prepareStatement(sql);
-//                st.setInt(1, item.getQuantity());
-//                st.setString(2, item.getProduct().getProductID());
-//                st.setInt(3, item.getSize());
-//                row = st.executeUpdate();
-//                st.close();
-//            }
-//            db.conn.close();
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//        return row;
+//    public void updateItem(Item item) {
+//        
 //    }
+    public int updateItem(Item item) {
+        int row = 0;
+        try {
+            ConnectDB db = new ConnectDB();
+            if (db.conn != null) {
+                String sql = "UPDATE Prod_Variant SET stock = ? WHERE prodID = ? AND size = ?";
+                PreparedStatement st = db.conn.prepareStatement(sql);
+                st.setInt(1, item.getQuantity());
+                st.setString(2, item.getProduct().getProductID());
+                st.setInt(3, item.getSize());
+                row = st.executeUpdate();
+                st.close();
+            }
+            db.conn.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return row;
+    }
 
     public Item getItem(String productID, int size) {
         DAOProduct prodDAO = new DAOProduct();

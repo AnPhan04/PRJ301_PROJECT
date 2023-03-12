@@ -113,9 +113,10 @@ public class DAOProduct extends ConnectDB {
 //        for (Product product : list1) {
 //            System.out.println(product.getProductImg().length);
 //        }
-        Product product = new Product("MDEPBL", "Test Product", 1000000);
+        Product product = dao.getProduct("MDEPBL");
+        System.out.println(product.getProductName());
 //        System.out.println(product.getCateID());
-        System.out.println(dao.updateProduct(product));
+//        System.out.println(dao.updateProduct(product));
         
     }
 }
