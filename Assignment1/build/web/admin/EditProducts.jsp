@@ -2,6 +2,7 @@
 <%@page import="Entity.Category" %>
 <%@page import="Entity.Product" %>
 <%@page import="Model.DAOCategory" %>
+<%@page import="Model.DAOProduct" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,12 @@
     <body>
         <%
             Item item = (Item) request.getAttribute("item");
-            Product product = (Product) request.getAttribute("product");
+            String productID = request.getParameter("productID");
+            DAOProduct prodDao = new DAOProduct();
+            Product product = prodDao.getProduct(productID);
+            if(product == null) {
+                response.sendRedirect("admin/Error.jsp");
+            }
             String error = (String) request.getAttribute("error");
             if (error != null && error.compareTo("") != 0){
                out.println(error);
@@ -26,7 +32,9 @@
         %>
         <div class="container">
             <h1 style="text-align: center;">EDIT PRODUCT</h1>
-            <h2><%=product.getProductName()%></h2>
+            <h2>
+                <%=product.getProductName()%>
+            </h2>
             <div class="left">
                 <ul class="editNav">
                     <li class="editNav-group">
@@ -56,7 +64,7 @@
             </div>
 
             <div class="right">
-                <form action="<%=request.getContextPath()%>/EditProducts?productID=<%=product.getProductID()%>" method="post">
+                <form action="<%=request.getContextPath()%>/EditProducts?productID=<%=product.getProductID()%>&size=<%=item.getSize()%>" method="post">
                     <!--Product Information - Product - Product-->
                     <div>
                         <div class="group-title">

@@ -48,18 +48,35 @@ public class EditProducts extends HttpServlet {
         try {
             String productID = request.getParameter("productID");
             DAOProduct prodDao = new DAOProduct();
-            int row = 0;
-            String newName = request.getParameter("productName");
-            double newPrice = Double.parseDouble(request.getParameter("price"));
-            row = prodDao.updateProduct(new Product(productID, newName, newPrice));
-            if (row < 1) {
+//            int row = 0;
+//            String newName = request.getParameter("productName");
+//            double newPrice = Double.parseDouble(request.getParameter("price"));
+
+//            Product prod = new Product(productID, newName, newPrice);
+//            row = prodDao.updateProduct(prod);
+
+//            update item (including: stock)
+            Product prod = prodDao.getProduct(productID);
+            DAOItem itemDao = new DAOItem();
+            int row1 = 0;
+            int size = Integer.parseInt(request.getParameter("size"));
+            int stock = Integer.parseInt(request.getParameter("stock"));
+            row1 = itemDao.updateItem(new Item(prod, stock, size));
+//            if (row < 1) {
+//                throw new Exception();
+//            } else {
+//                response.sendRedirect("ViewProducts");
+//            }
+
+            if (row1 < 1) {
                 throw new Exception();
             } else {
                 response.sendRedirect("ViewProducts");
             }
         } catch (Exception e) {
-            request.setAttribute("error", "Error!");
-            request.getRequestDispatcher("admin/EditProducts.jsp").forward(request, response);
+            response.sendRedirect("admin/Error.jsp");
+//            request.setAttribute("error", "Error!");
+//            request.getRequestDispatcher("admin/EditProducts.jsp").forward(request, response);
         }
     }
 }

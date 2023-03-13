@@ -21,7 +21,7 @@ import org.apache.tomcat.jakartaee.bcel.Const;
  * @author ASUS
  */
 public class DAOItem extends ConnectDB {
-    
+
 //    public void updateItem(Item item) {
 //        
 //    }
@@ -88,13 +88,16 @@ public class DAOItem extends ConnectDB {
 
     public static void main(String[] args) {
         DAOItem dao = new DAOItem();
+        DAOProduct dao2 = new DAOProduct();
 //        ArrayList<Item> list = dao.listAllItems();
 //        for (Item item : list) {
 //            System.out.println(item.toString());
 //        }
 
 //        Item item = dao.getItem("MDEPBL", 40);
-        
-        System.out.println(dao.getItem("MHTBL", 40).getProduct());
+//        System.out.println(dao.getItem("MHTBL", 40).getProduct());
+        Item item = new Item(dao2.getProduct("MDEPBL"), 1, 43);
+//        System.out.println(dao.updateItem(item));
+        System.out.println(item.getSize());
     }
 }
