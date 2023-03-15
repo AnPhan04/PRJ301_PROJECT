@@ -12,32 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/css/UserHome.css</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/Home.jsp</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/css/edit.css</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/UpdateInfo.jsp</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/DangKi.jsp</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Model/DAOUser.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/BuyServlet.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/NewServlet.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/Login.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/ProcessServlet.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/Logout.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/RegisterServlet.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/css/SanPham.css</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/Cart.jsp</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/DangNhap.jsp</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/ShowCart.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/SanPham.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/css/style.css</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/css/UpdateInfo.css</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Entity/Product.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/admin/AddProducts.jsp</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/AddProducts.java</file>
             <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Model/DAOProduct.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/css/1.css</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/SanPham.jsp</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/PhanTrang.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Entity/Cart.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/UserHome.jsp</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/css/nam.css</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/EditProducts.java</file>
         </group>
     </open-files>
 </project-private>

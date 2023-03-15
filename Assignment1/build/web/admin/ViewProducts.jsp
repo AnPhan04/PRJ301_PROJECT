@@ -46,19 +46,19 @@
                             </a>
                         </li>
                         <li class="" style="margin-top: 0px;">
-                            <a href="" id="">
+                            <a href="ViewProducts" id="">
                                 <i class="fa-solid fa-file"></i>
                                 <span>Products</span>
                             </a>
                         </li>
                         <li class="" style="margin-top: 0px;">
-                            <a href="add.html" id="">
+                            <a href="AddProducts" id="">
                                 <i class="fa-sharp fa-solid fa-pen-to-square"></i>
                                 <span>Add product</span>
                             </a>
                         </li>
                         <li class="" style="margin-top: 0px;">
-                            <a href="" id="getStarted">
+                            <a href="Customers" id="getStarted">
                                 <i class="fa-sharp fa-solid fa-percent"></i>
                                 <span>Customers</span>
                             </a>
@@ -116,36 +116,21 @@
                                 <td><%= list.get(i).getSize()%></td>
                                 <td><%= list.get(i).getQuantity()%></td>
                                 <td><%= list.get(i).getPrice()%></td>
-                                <td><a href="EditProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">Edit</a></td>
-                                <td><button><i class="fa-solid fa-trash" onclick="removeRow()"></i></button></td>
+                                <td>
+                                    <a href="EditProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">Edit</a>
+                                </td>
+                                <td>
+                                    <button>
+                                        <a href="DeleteProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </button>
+                                </td>
                             </tr>
                             <%
                                 row++;
                                 }
                             %>
-                            <!--                        <tr class="product-row" id="row1" style="vertical-align: middle;">
-                                                        <td>1</td>
-                                                        <td class="prod">
-                                                             <div class=""> 
-                                                            <div class="prod-name">
-                                                                <div class="prod-img">
-                                                                    <img alt="Test product"
-                                                                         src="https://product.hstatic.net/1000230642/product/h07700xam__3__cc8a01779a8341e1b60552d9252ffd4f.jpg"
-                                                                         class="">
-                                                                </div>
-                                                                <div class="prod-link">
-                                                                    <a href="https://bitis.com.vn/products/giay-the-thao-nam-biti-s-hunter-x-1-0-festive-armor-grey-dsmh07700xam-xam"
-                                                                       target="_top" class="">Test product</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                            
-                                                        <td>40</td>
-                                                        <td>1000</td>
-                                                        <td>500,000</td>
-                                                        <td><a href="edit.html">Edit</a></td>
-                                                        <td><button><i class="fa-solid fa-trash" onclick="removeRow()"></i></button></td>
-                                                    </tr>-->
                         </tbody>
                     </table>
                 </div>
@@ -158,8 +143,8 @@
         </div>
         <script src="js/admin.js"></script>
         <script>
-                                                            // Get the element with id="defaultOpen" and click on it
-                                                            document.getElementById("defaultOpen").click();
+                        // Get the element with id="defaultOpen" and click on it
+                        document.getElementById("defaultOpen").click();
         </script>
     </body>
 </html>

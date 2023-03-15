@@ -47,7 +47,7 @@ public class EditProducts extends HttpServlet {
             throws ServletException, IOException {
         try {
             String productID = request.getParameter("productID");
-            
+
 //            update product (including: prodName, price)
             DAOProduct prodDao = new DAOProduct();
             int row = 0;
@@ -62,24 +62,12 @@ public class EditProducts extends HttpServlet {
             int size = Integer.parseInt(request.getParameter("size"));
             int stock = Integer.parseInt(request.getParameter("stock"));
             row1 = itemDao.updateItem(new Item(prod, stock, size));
-            
-//            if (row < 1) {
-//                throw new Exception();
-//            } else {
-//                response.sendRedirect("ViewProducts");
-//            }
 
-//            if (row1 < 1) {
-//                throw new Exception();
-//            } else {
-//                response.sendRedirect("ViewProducts");
-//            }
-
-             if(row < 1 && row1 < 1) {
-                 throw new Exception();
-             } else {
-                 response.sendRedirect("ViewProducts");
-             }
+            if (row < 1 && row1 < 1) {
+                throw new Exception();
+            } else {
+                response.sendRedirect("ViewProducts");
+            }
         } catch (Exception e) {
 //            response.sendRedirect("admin/Error.jsp");
             request.setAttribute("error", "Error!");

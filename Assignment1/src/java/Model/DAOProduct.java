@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -17,29 +18,94 @@ import java.util.Vector;
  * @author Tran Tuan
  */
 public class DAOProduct extends ConnectDB {
-    public Product getProductByID(String id) {
-        String sql="select * from Product where ProdID='"+id+"'";
+    
+    public int deleteProduct(String productID) {
+        int row = 0;
         try {
-            PreparedStatement st=conn.prepareStatement(sql);
-            ResultSet rs=st.executeQuery();
-            while(rs.next()) {
+            ConnectDB db = new ConnectDB();
+            if (db.conn != null) {
+                String sql = "DELETE FROM Product WHERE prodID = ?";
+                PreparedStatement st = db.conn.prepareStatement(sql);
+                st.setString(1, productID);
+                row = st.executeUpdate();
+                st.close();
+            }
+            db.conn.close();
+        } catch (Exception e) {
+            row = -1;
+            System.out.println(e.getMessage());
+        }
+        return row;
+    }
 
-               String cateID=rs.getString(1);
-               String productID=rs.getString(2);               
-               String productName=rs.getString(3);
-               String productImg=rs.getString(4);
-               double price=rs.getDouble(5);
-               
-               String img[]=productImg.split(",");
-               
-               Product pro=new Product(productID, productName, img, price);
-               return  pro;
+    public int addProduct(Product product) {
+        int row = 0;
+        try {
+            ConnectDB db = new ConnectDB();
+            if (db.conn != null) {
+                Statement st = db.conn.createStatement();
+                String sql = "INSERT INTO Product(cateID, prodID, ProdName, prodImg, price)\n"
+                        + "VALUES('" + product.getCateID() + "', '"
+                        + product.getProductID() + "', '"
+                        + product.getProductName() + "', '"
+                        + product.getProductImg() + "', "
+                        + product.getPrice() + ")";
+                row = st.executeUpdate(sql);
+                st.close();
+                db.conn.close();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            row = -1;
+        }
+        return row;
+    }
+    
+//    public int addProduct(Product product) {
+//        int row = 0;
+//        try {
+//            ConnectDB db = new ConnectDB();
+//            if (db.conn != null) {
+//                Statement st = db.conn.createStatement();
+//                String sql = "INSERT INTO Product(cateID, prodID, ProdName, price)\n"
+//                        + "VALUES('" + product.getCateID() + "', '"
+//                        + product.getProductID() + "', '"
+//                        + product.getProductName() + "', '"
+//                        + product.getPrice() + ")";
+//                row = st.executeUpdate(sql);
+//                st.close();
+//                db.conn.close();
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//            row = -1;
+//        }
+//        return row;
+//    }
+
+    public Product getProductByID(String id) {
+        String sql = "select * from Product where ProdID='" + id + "'";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+
+                String cateID = rs.getString(1);
+                String productID = rs.getString(2);
+                String productName = rs.getString(3);
+                String productImg = rs.getString(4);
+                double price = rs.getDouble(5);
+
+                String img[] = productImg.split(",");
+
+                Product pro = new Product(productID, productName, img, price);
+                return pro;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return null;
-    } 
+    }
 
     public int updateProduct(Product product) {
         int row = 0;
@@ -131,15 +197,9 @@ public class DAOProduct extends ConnectDB {
 
     public static void main(String[] args) {
         DAOProduct dao = new DAOProduct();
-//        Vector<Product> list1 = dao.listAllProduct("select * from Product where prodID like 'FM%'");
-//
-//        for (Product product : list1) {
-//            System.out.println(product.getProductImg().length);
-//        }
-        Product product = dao.getProduct("MDEPBL");
-        System.out.println(product.getProductName());
-//        System.out.println(product.getCateID());
-//        System.out.println(dao.updateProduct(product));
-        
+        String[] imgs = {"images/Male/MDEP/MDEPGR/1.jpg"};
+        Product prod = new Product(1, "MDEPPINK", "TEST", imgs, 0);
+        System.out.println(dao.addProduct(prod));
+
     }
 }

@@ -22,9 +22,26 @@ import org.apache.tomcat.jakartaee.bcel.Const;
  */
 public class DAOItem extends ConnectDB {
 
-//    public void updateItem(Item item) {
-//        
-//    }
+    public int deleteItem(String productID, int size) {
+        int row = 0;
+        try {
+            ConnectDB db = new ConnectDB();
+            if (db.conn != null) {
+                String sql = "DELETE FROM Prod_Variant WHERE prodID=? AND size=?";
+                PreparedStatement st = db.conn.prepareStatement(sql);
+                st.setString(1, productID);
+                st.setInt(2, size);
+                row = st.executeUpdate();
+                st.close();
+            }
+            db.conn.close();
+        } catch (Exception e) {
+            row = -1;
+            System.out.println(e.getMessage());
+        }
+        return row;
+    }
+
     public int updateItem(Item item) {
         int row = 0;
         try {
@@ -88,16 +105,8 @@ public class DAOItem extends ConnectDB {
 
     public static void main(String[] args) {
         DAOItem dao = new DAOItem();
-        DAOProduct dao2 = new DAOProduct();
-//        ArrayList<Item> list = dao.listAllItems();
-//        for (Item item : list) {
-//            System.out.println(item.toString());
-//        }
-
-//        Item item = dao.getItem("MDEPBL", 40);
-//        System.out.println(dao.getItem("MHTBL", 40).getProduct());
-        Item item = new Item(dao2.getProduct("MDEPBL"), 1, 43);
-//        System.out.println(dao.updateItem(item));
-        System.out.println(item.getSize());
+        Item item = dao.getItem("MDEPBL", 43);
+//        System.out.println(item.toString());
+        System.out.println(dao.deleteItem("MDEPBL", 43));
     }
 }
