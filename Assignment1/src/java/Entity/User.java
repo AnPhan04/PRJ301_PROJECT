@@ -10,8 +10,10 @@ package Entity;
  * @author Tran Tuan
  */
 public class User {
+
     private int userId;
-    private String userName,password,ho,ten, DOB,address,gioitinh,sdt,role;
+    private String userName, password, ho, ten, DOB, address, gioitinh, sdt, role;
+
     public User() {
     }
 
@@ -37,11 +39,6 @@ public class User {
         this.address = address;
         this.sdt = sdt;
     }
-
-    
-
-   
-   
 
     public User(String userName, String password, String ho, String ten, String DOB, String address, String gioitinh, String sdt) {
         this.userName = userName;
@@ -139,14 +136,4 @@ public class User {
         return "User{" + "userId=" + userId + ", userName=" + userName + ", password=" + password + ", ho=" + ho + ", ten=" + ten + ", DOB=" + DOB + ", address=" + address + ", gioitinh=" + gioitinh + ", sdt=" + sdt + ", role=" + role + '}';
     }
 
- 
-    
-
-   
-   
-    
-    
-
-  
 }
-    

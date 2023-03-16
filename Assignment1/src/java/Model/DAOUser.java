@@ -9,7 +9,7 @@ import Entity.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Vector;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +18,36 @@ import java.util.logging.Logger;
  * @author Tran Tuan
  */
 public class DAOUser extends ConnectDB {
+
+    public ArrayList<User> listAllUsers() {
+        ConnectDB db = new ConnectDB();
+        DAOUser dao = new DAOUser();
+        ArrayList<User> list = new ArrayList<>();
+        try {
+            if (db.conn != null) {
+                ResultSet rs = db.getData("SELECT * FROM [User]");
+                while (rs.next()) {
+                    int id = rs.getInt("UserID");
+                    String name = rs.getString("UserName");
+                    String pass = rs.getString("Password");
+                    String ho = rs.getString("Ho");
+                    String ten = rs.getString("Ten");
+                    String dob = rs.getString("DOB");
+                    String address = rs.getString("Address");
+                    String gender = rs.getString("GioiTinh");
+                    String sdt = rs.getString("sdt");
+                    String role = rs.getString("role");
+                    list.add(new User(id, name, pass, ho, ten, dob, address, gender, sdt, role));
+                }
+                rs.close();
+                db.conn.close();
+                return list;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 
     public User getUser(String user, String pass) {
         //vì nó chỉ select ra 1 đối tư
@@ -124,16 +154,10 @@ public class DAOUser extends ConnectDB {
 
     public static void main(String[] args) {
         DAOUser dao = new DAOUser();
-//         User u=dao.getUser("huytq","huytq12345");
-//         System.out.println(u);
-//         User u1=new User(3,"tuanpm","Pham","Tuấn","2002-02-22","Hà Nội","12345");
-//         int n=dao.updateUser(u1);
-//         System.out.println("n:"+n);
-//String date="Trần Quang Huy";
-//               System.out.println(""+date);
-        User u = dao.getUser("tuan@gmail.com");
-        System.out.println("U:" + u);
-
+        ArrayList<User> list = dao.listAllUsers();
+        for (User u : list) {
+            System.out.println(list.toString());
+        }
     }
 
 }
