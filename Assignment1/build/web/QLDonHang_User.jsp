@@ -1,7 +1,7 @@
 <%-- 
-    Document   : QLDonHang_User
-    Created on : Mar 16, 2023, 4:58:44 PM
-    Author     : ASUS
+    Document   : Cart
+    Created on : Mar 8, 2023, 3:51:40 PM
+    Author     : Tran Tuan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,6 +26,7 @@
 
     </head>
     <body>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="khoi">
@@ -37,6 +38,7 @@
                         <a href="" title="">Tìm cửa hàng</a>
                         <a href="" title="">Mua hàng tại Shopify</a>
                     </div>
+
                 </div>         
             </div>
         </div> 
@@ -46,6 +48,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="PhanTrang">
                     <img src="images/1.png" alt="">
+
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,6 +56,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
+
                         <li  class="nav-item dropdown">
                             <a  class="nav-link dropdown-toggle" href="Nam.html" id="navbarDropdownMenuLink" role="button"  aria-expanded="false">
                                 NAM
@@ -157,6 +161,12 @@
                 </div>
             </div>
         </nav>
+
+
+
+
+
+
         <section id="cart-container" class="container my-5">
             <table width = "100%">
                 <thead><tr>
@@ -166,25 +176,32 @@
                         <td>Size</td>
                         <td>Số Lượng</td>
                         <td>Tổng tiền</td>
+
+
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${requestScope.listItem}" var="i">
-                    <tr>                           
-                        <td><img src="${i.product.productImg[0]}" alt=""></td>
-                        <td><h5>${i.product.productName}</h5></td>
-                        <td><h5>${i.product.price}</h5></td>
-                        <td><h5>${i.size}</h5></td>
-                        <td class="numProduct">
-                            <input type="text" readonly value="${i.quantity}" />
-                        </td>
-                        <td><h5><fmt:formatNumber pattern="##.#" value="${i.quantity*i.product.price}"/></h5></td>
-                    </tr>
-                </c:forEach> 
+                    <c:forEach items="${requestScope.listItem}" var="i">
+                        <tr>                           
+                            <td><img src="${i.product.productImg[0]}" alt=""></td>
+                            <td><h5>${i.product.productName}</h5></td>
+                            <td><h5>${i.product.price}</h5></td>
+                            <td><h5>${i.size}</h5></td>
+                            <td class="numProduct">
+                                
+                                <input type="text" readonly value="${i.quantity}" />
+                                
+                            </td>
+                            <td><h5><fmt:formatNumber pattern="##.#" value="${i.quantity*i.product.price}"/></h5></td>
+                        </tr>
+                    </c:forEach> 
                 </tbody>
             </table>
             <p style="text-align: center;margin-top: 30px;color: red;font-size: 20px;font-weight: bold;">${requestScope.info}</p>
         </section>
+        
+
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12 khoi14">
@@ -212,6 +229,7 @@
                     <div class="anh14">
                         <img src="images/11.jpg" alt=""> 
                     </div>
+
                 </div>
             </div>
         </div>
@@ -260,7 +278,9 @@
                         Hotline: 19002126 ( cước phí: 3.000đ/phút )<br>
                         Thời gian tư vấn: Từ 07h30 đến 12h15, 13h15 đến 21h30 các ngày trong tuần ( Trừ ngày Lễ, Tết)<br>
                     </p>
+
                 </div>
+
             </div>  
         </div>
 
@@ -285,8 +305,14 @@
                 </div>
             </div>
         </div>
+
+
+
+
         <script src="js/1.js"></script>
         <script src="js/bootstrap.min.js"></script>
+
     </body>
+
 </html>                         
 

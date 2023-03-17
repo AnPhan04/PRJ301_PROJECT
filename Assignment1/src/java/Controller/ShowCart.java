@@ -19,7 +19,7 @@ import java.util.Vector;
 
 /**
  *
- * @author ASUS
+ * @author Tran Tuan
  */
 @WebServlet(name = "ShowCart", urlPatterns = {"/ShowCart"})
 public class ShowCart extends HttpServlet {
@@ -52,7 +52,8 @@ public class ShowCart extends HttpServlet {
 
             Cart cart = new Cart(txt, list);
             float total = cart.getTotalMoney();
-
+            
+            
             request.setAttribute("cart", cart);
             request.setAttribute("total", total);
             request.getRequestDispatcher("Cart.jsp").forward(request, response);

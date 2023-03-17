@@ -12,11 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Entity/Product.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/admin/AddProducts.jsp</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/AddProducts.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Model/DAOProduct.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/EditProducts.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/Cart.jsp</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/ShowCart.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/QLDonHang_User.jsp</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/web/admin/ViewProducts.jsp</file>
+            <file>file:/C:/Users/ASUS/Desktop/FPTDOCS/SP23/PRJ/PRJ301_GroupProject/PRJ301_PROJECT/Assignment1/src/java/Controller/QLDonHang_User_Servlet.java</file>
         </group>
     </open-files>
 </project-private>
