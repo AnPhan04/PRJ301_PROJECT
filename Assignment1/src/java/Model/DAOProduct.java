@@ -18,7 +18,7 @@ import java.util.Vector;
  * @author Tran Tuan
  */
 public class DAOProduct extends ConnectDB {
-    
+
     public int deleteProduct(String productID) {
         int row = 0;
         try {
@@ -48,7 +48,7 @@ public class DAOProduct extends ConnectDB {
                         + "VALUES('" + product.getCateID() + "', '"
                         + product.getProductID() + "', '"
                         + product.getProductName() + "', '"
-                        + product.getProductImg() + "', "
+                        + String.join(",", product.getProductImg()) + "', "
                         + product.getPrice() + ")";
                 row = st.executeUpdate(sql);
                 st.close();
@@ -60,28 +60,6 @@ public class DAOProduct extends ConnectDB {
         }
         return row;
     }
-    
-//    public int addProduct(Product product) {
-//        int row = 0;
-//        try {
-//            ConnectDB db = new ConnectDB();
-//            if (db.conn != null) {
-//                Statement st = db.conn.createStatement();
-//                String sql = "INSERT INTO Product(cateID, prodID, ProdName, price)\n"
-//                        + "VALUES('" + product.getCateID() + "', '"
-//                        + product.getProductID() + "', '"
-//                        + product.getProductName() + "', '"
-//                        + product.getPrice() + ")";
-//                row = st.executeUpdate(sql);
-//                st.close();
-//                db.conn.close();
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//            row = -1;
-//        }
-//        return row;
-//    }
 
     public Product getProductByID(String id) {
         String sql = "select * from Product where ProdID='" + id + "'";
@@ -197,8 +175,12 @@ public class DAOProduct extends ConnectDB {
 
     public static void main(String[] args) {
         DAOProduct dao = new DAOProduct();
-        String[] imgs = {"images/Male/MDEP/MDEPGR/1.jpg"};
-        Product prod = new Product(1, "MDEPPINK", "TEST", imgs, 0);
+        String img = "images/Male/MDEP/MDEPGR/1.jpg";
+//        String[] imgs = {"images/Male/MDEP/MDEPGR/1.jpg"};
+        String[] imgs = img.split(",");
+//        Product prod = new Product(2, "MDEPcoral", "TEST", imgs, 100);
+        Product prod = new Product(2, "MDEPorange", "TEST", imgs, 100);
+//        Product prod = new Product(1, "testid", "prodname", 100000, img);
         System.out.println(dao.addProduct(prod));
 
     }

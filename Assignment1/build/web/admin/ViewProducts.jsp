@@ -19,15 +19,14 @@
         <script src="https://kit.fontawesome.com/d532025e5e.js" crossorigin="anonymous"></script>
         <!-- Embed CSS  here-->
         <link rel="stylesheet" type="text/css" href="css/admin.css">
-        <!-- <link rel="stylesheet" type="text/css" href="../fonts/css/all.min.css"> -->
     </head>
 
     <body>
-        <header class="main-header" style="max-width: 250px;">
-            <a href="/home.html" class="logo">
-                <img src="../images/1.jpg" style="width: 94%; padding-top: 10px;">
-            </a>
-        </header>
+        <!--        <header class="main-header" style="max-width: 250px;">
+                    <a href="/home.html" class="logo">
+                        <img src="../images/1.jpg" style="width: 94%; padding-top: 10px;">
+                    </a>
+                </header>-->
         <div>
             <aside class="main-sidebar">
                 <!--name-badge-->
@@ -48,19 +47,25 @@
                         <li class="" style="margin-top: 0px;">
                             <a href="ViewProducts" id="">
                                 <i class="fa-solid fa-file"></i>
-                                <span>Products</span>
+                                <span>Manage Products</span>
                             </a>
                         </li>
                         <li class="" style="margin-top: 0px;">
                             <a href="AddProducts" id="">
                                 <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-                                <span>Add product</span>
+                                <span>Add Products</span>
                             </a>
                         </li>
                         <li class="" style="margin-top: 0px;">
-                            <a href="Customers" id="getStarted">
-                                <i class="fa-sharp fa-solid fa-percent"></i>
+                            <a href="ViewCustomers" id="getStarted">
+                                <i class="fa-solid fa-users"></i>
                                 <span>Customers</span>
+                            </a>
+                        </li>
+                        <li class="" style="margin-top: 0px;">
+                            <a href="ViewOrders" id="getStarted">
+                                <i class="fa-sharp fa-solid fa-shopping-bag"></i>
+                                <span>Orders</span>
                             </a>
                         </li>
                     </ul>
@@ -72,12 +77,12 @@
                 <!-- Tab links -->
                 <div class="tab">
                     <button class="tablinks" onclick="openCity(event, 'view')" id="defaultOpen">View Products</button>
-                    <button class="tablinks" onclick="openCity(event, 'add')">Add Products</button>
+                    <!--<button class="tablinks" onclick="openCity(event, 'add')"><a href="AddProducts">Add Products</a></button>-->
                 </div>
 
                 <!-- Tab content -->
                 <div id="view" class="tabcontent">
-                    <h2>View Products</h2>
+                    <!--<h2>View Products</h2>-->
                     <table class="table">
                         <thead>
                             <tr>
@@ -108,7 +113,7 @@
                                                  class="">
                                         </div>
                                         <div class="prod-link">
-                                            <a href="SanPham" target="_top" class=""><%=list.get(i).getProduct().getProductName()%></a>
+                                            <a href="SanPham" target="_top"><%=list.get(i).getProduct().getProductName()%></a>
                                         </div>
                                     </div>
                                     <!-- </div> -->
@@ -117,14 +122,16 @@
                                 <td><%= list.get(i).getQuantity()%></td>
                                 <td><%= list.get(i).getPrice()%></td>
                                 <td>
-                                    <a href="EditProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">Edit</a>
+                                    <a href="EditProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">
+                                        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                    </a>
                                 </td>
                                 <td>
-                                    <button>
-                                        <a href="DeleteProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-                                    </button>
+                                    <!--<button>-->
+                                    <a href="DeleteProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                    <!--</button>-->
                                 </td>
                             </tr>
                             <%
@@ -135,10 +142,10 @@
                     </table>
                 </div>
 
-                <div id="add" class="tabcontent">
-                    <h2>Add Products</h2>
-                    <p>Paris is the capital of France.</p>
-                </div>
+                <!--                <div id="add" class="tabcontent">
+                                    <h2>Add Products</h2>
+                                    <p>Paris is the capital of France.</p>
+                                </div>-->
             </aside>
         </div>
         <script src="js/admin.js"></script>

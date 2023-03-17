@@ -4,8 +4,11 @@
     Author     : ASUS
 --%>
 
-<%@page import="Entity.User"%>
+<%@page import="Entity.Order"%>
+<%@page import="Entity.OrderDetail" %>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map" %>
+<%@page import="java.util.HashMap" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,14 +50,20 @@
                         </li>
                         <li class="" style="margin-top: 0px;">
                             <a href="AddProducts" id="">
-                                <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                <i class="fa-sharp fa-solid fa-pen-to-square" style="width: 10.5px;"></i>
                                 <span>Add Products</span>
                             </a>
                         </li>
                         <li class="" style="margin-top: 0px;">
                             <a href="ViewCustomers" id="getStarted">
-                                <i class="fa-sharp fa-solid fa-percent"></i>
+                                <i class="fa-solid fa-users" style="width: 10.5px;"></i>
                                 <span>Customers</span>
+                            </a>
+                        </li>
+                        <li class="" style="margin-top: 0px;">
+                            <a href="ViewOrders" id="getStarted">
+                                <i class="fa-sharp fa-solid fa-shopping-bag"></i>
+                                <span>Orders</span>
                             </a>
                         </li>
                     </ul>
@@ -76,60 +85,35 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">EMAIL</th>
-                                <th scope="col">PASSWORD</th>
-                                <th scope="col">HO</th>
-                                <th scope="col">TEN</th>
-                                <th scope="col">DOB</th>
-                                <th scope="col">ADDRESS</th>
-                                <th scope="col">GENDER</th>
-                                <th scope="col">PHONE</th>
-                                <th scope="col">ROLE</th>
-                                <th colspan="2">ACTION</th>
+                                <th scope="col">ORDER ID</th>
+                                <th scope="col">DATE</th>
+                                <th scope="col">CUSTOMER ID</th>
+                                <th scope="col">QTY</th>   
+                                <th scope="col">TOTAL</th>
+                                <!--<th scope="col">ACTION</th>-->
                             </tr>
                         </thead>
                         <tbody>
                             <%
-//                                int row = 0;
-                                ArrayList<User> list = (ArrayList<User>) request.getAttribute("ViewCustomers");
+                                Map<Integer, OrderDetail> prodDetails = (Map<Integer, OrderDetail>) request.getAttribute("prodDetails");
+//                                OrderDetail od = prodDetails.get(listOrder.getOrderID());
+                                ArrayList<Order> list = (ArrayList<Order>) request.getAttribute("listOrders");
                                 
                                 for(int i = 0; i < list.size(); i++) {
-                                    User user = list.get(i);
+                                    Order order = list.get(i);
                             %>
                             <tr class="product-row" style="vertical-align: middle;">
-                                <td><%= user.getUserId()%></td>
-                                <td><%= user.getUserName()%></td>
-                                <td><%= user.getPassword()%></td>
-                                <td><%= user.getHo()%></td>
-                                <td><%= user.getTen()%></td>
-                                <td><%= user.getDOB()%></td>
-                                <td><%= user.getAddress()%></td>
-                                <td><%= user.getGioitinh()%></td>
-                                <td><%= user.getSdt()%></td>
-                                <td><%= user.getRole()%></td>
-                                <td>
-                                    <a href="">Edit</a>
-                                </td>
-                                <td>
-                                    <button>
-                                        <a href="">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-                                    </button>
-                                </td>
+                                <td><%=order.getOrderID()%></td>
+                                <td><%=order.getOrderDate()%></td>
+                                <td><%=order.getUserID()%></td>
+                                <td><%=prodDetails.get(order.getUserID()).getQuantity()%></td>
+                                <td><%=prodDetails.get(order.getUserID()).getTotalPrice()%></td>
                             </tr>
                             <%
-//                                row++;
                                 }
                             %>
                         </tbody>
                     </table>
-                </div>
-
-                <div id="add" class="tabcontent">
-                    <h2>Add Customers</h2>
-                    <p>Paris is the capital of France.</p>
                 </div>
             </aside>
         </div>
