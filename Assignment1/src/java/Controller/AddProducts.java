@@ -4,7 +4,9 @@
  */
 package Controller;
 
+import Entity.Item;
 import Entity.Product;
+import Model.DAOItem;
 import Model.DAOProduct;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,20 +32,29 @@ public class AddProducts extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        // add product
         DAOProduct prodDao = new DAOProduct();
-        int cateID = Integer.parseInt(request.getParameter("category"));
         String productID = request.getParameter("productID");
+        int cateID = Integer.parseInt(request.getParameter("category"));
         String name = (String) request.getParameter("name");
-        String[] imgs = {"images/Female/FMDEP/FMDEPBL/1.jpg"};
+        String img = request.getParameter("image");
+        String[] imgs = img.split(",");
         double price = Double.parseDouble(request.getParameter("price"));
         Product newProd = new Product(cateID, productID, name, imgs, price);
-        if (prodDao.getProductByID(productID) != null) {
-            request.setAttribute("error", "Product existed!");
-            request.getRequestDispatcher("admin/EditProducts.jsp").forward(request, response);
+
+        // add prod_variant 
+        DAOItem itemDao = new DAOItem();
+        int size = Integer.parseInt(request.getParameter("size"));
+        int stock = Integer.parseInt(request.getParameter("stock"));
+
+        if (prodDao.getProduct(productID) != null) {
+            request.setAttribute("error", "Product exists!");
+            request.getRequestDispatcher("admin/AddProducts.jsp").forward(request, response);
         } else {
-            int result = prodDao.addProduct(newProd);
-            System.out.println(result);
-//            cần phải đi qua view products servlet trước khi đi đến view products jsp
+            int row = prodDao.addProduct(newProd);
+            int row1 = itemDao.addItem(new Item(newProd, stock, size));
+            System.out.println("Product: " + row + "\nProd_Variant: " + row1);
             response.sendRedirect("ViewProducts");
         }
     }

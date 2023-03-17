@@ -19,6 +19,7 @@
     </head>
 
     <body>
+        
         <div class="container">
             <div class="left">
                 <ul class="editNav">
@@ -63,7 +64,7 @@
                                     <div class="form-row">
                                         <!--ProductID-->
                                         <div class="form-field">
-                                            <label class="form-label" id="productLabel-name" for="productID">
+                                            <label class="form-label" for="productID">
                                                 <span>Product ID</span>
                                                 <span class="form-small-required">*</span>
                                             </label>
@@ -71,7 +72,7 @@
                                                 <input class="form-input" name="productID" placeholder="Sample Product ID" type="text" required>
                                             </div>
                                         </div>
-                                        
+
                                         <!--ProductName-->
                                         <div class="form-field">
                                             <label class="form-label" for="">
@@ -82,7 +83,7 @@
                                                 <input class="form-input" name="name" type="text" placeholder="Sample Product Name" required>
                                             </div>
                                         </div>
-                                        
+
                                         <!--ProductPrice-->
                                         <div class="form-field">
                                             <label class="form-label" for="price">
@@ -96,7 +97,7 @@
                                     </div>
                                 </div>
                                 <div class="panel-body" id="category">
-                                    
+
                                     <!--Category-->
                                     <div class="panel-header">
                                         <h2>Category</h2>
@@ -132,9 +133,18 @@
                                     </div>
                                 </div>
                                 <div class="panel-body" id="images">
-                                    <h2>Images</h2>
-                                    <input type="file" id="myFile" name="filename" multiple>
+                                    <div class="form-field">
+                                        <label class="form-label" for="productID">
+                                            <span>Images</span>
+                                            <span class="form-small-required">*</span>
+                                        </label>
+                                        <div class="form-input-container">
+                                            <input class="form-input" name="image" placeholder="Image URL" type="text" required>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!--ProductID-->
+
                             </div>
                         </div>
                     </div>
@@ -150,7 +160,7 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-field">
-                                            <label class="form-label" id="productLabel-name" for="size">
+                                            <label class="form-label" for="size">
                                                 <span>Size</span>
                                                 <span class="form-small-required">*</span>
                                             </label>

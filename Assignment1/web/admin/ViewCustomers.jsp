@@ -47,14 +47,20 @@
                         </li>
                         <li class="" style="margin-top: 0px;">
                             <a href="AddProducts" id="">
-                                <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                <i class="fa-sharp fa-solid fa-pen-to-square" style="width: 10.5px;"></i>
                                 <span>Add Products</span>
                             </a>
                         </li>
                         <li class="" style="margin-top: 0px;">
                             <a href="ViewCustomers" id="getStarted">
-                                <i class="fa-sharp fa-solid fa-percent"></i>
+                                <i class="fa-solid fa-users" style="width: 10.5px;"></i>
                                 <span>Customers</span>
+                            </a>
+                        </li>
+                        <li class="" style="margin-top: 0px;">
+                            <a href="ViewOrders" id="getStarted">
+                                <i class="fa-sharp fa-solid fa-shopping-bag"></i>
+                                <span>Orders</span>
                             </a>
                         </li>
                     </ul>
@@ -86,7 +92,6 @@
                                 <th scope="col">GENDER</th>
                                 <th scope="col">PHONE</th>
                                 <th scope="col">ROLE</th>
-                                <th colspan="2">ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -108,16 +113,6 @@
                                 <td><%= user.getGioitinh()%></td>
                                 <td><%= user.getSdt()%></td>
                                 <td><%= user.getRole()%></td>
-                                <td>
-                                    <a href="">Edit</a>
-                                </td>
-                                <td>
-                                    <button>
-                                        <a href="">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-                                    </button>
-                                </td>
                             </tr>
                             <%
 //                                row++;

@@ -1,12 +1,4 @@
-<%-- 
-    Document   : ViewProducts
-    Created on : Mar 9, 2023, 8:27:13 PM
-    Author     : ASUS
---%>
 
-<%@page import="Entity.Item"%>
-<%@page import="java.util.ArrayList"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +10,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/d532025e5e.js" crossorigin="anonymous"></script>
         <!-- Embed CSS  here-->
-        <link rel="stylesheet" type="text/css" href="css/admin.css">
+        <link rel="stylesheet" type="text/css" href="../css/admin.css">
     </head>
 
     <body>
@@ -52,13 +44,13 @@
                         </li>
                         <li class="" style="margin-top: 0px;">
                             <a href="AddProducts" id="">
-                                <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                <i class="fa-sharp fa-solid fa-pen-to-square" style="width: 10.5px;"></i>
                                 <span>Add Products</span>
                             </a>
                         </li>
                         <li class="" style="margin-top: 0px;">
                             <a href="ViewCustomers" id="getStarted">
-                                <i class="fa-solid fa-users"></i>
+                                <i class="fa-solid fa-users" style="width: 10.5px;"></i>
                                 <span>Customers</span>
                             </a>
                         </li>
@@ -95,49 +87,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%
-                                int row = 0;
-                                ArrayList<Item> list = (ArrayList<Item>) request.getAttribute("ViewProducts");
-                                
-                                for(int i = 0; i < list.size(); i++) {
-                                    
-                            %>
                             <tr class="product-row" id="row1" style="vertical-align: middle;">            
-                                <td><%= row + 1 %></td>
+                                <td></td>
                                 <td class="prod">
                                     <div class="prod-name">
                                         <div class="prod-img">
                                             <img alt="Test product"
-                                                 src="<%String[] imgs = list.get(i).getProduct().getProductImg();%>
-                                                 <%= imgs[0]%>"
+                                                 src=""
                                                  class="">
                                         </div>
                                         <div class="prod-link">
-                                            <a href="SanPham" target="_top"><%=list.get(i).getProduct().getProductName()%></a>
+                                            <a href="SanPham" target="_top" style="text-decoration: none;"><%=list.get(i).getProduct().getProductName()%></a>
                                         </div>
                                     </div>
                                     <!-- </div> -->
                                 </td>
-                                <td><%= list.get(i).getSize()%></td>
-                                <td><%= list.get(i).getQuantity()%></td>
-                                <td><%= list.get(i).getPrice()%></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
-                                    <a href="EditProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">
+                                    <a href="">
                                         <i class="fa-sharp fa-solid fa-pen-to-square"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <!--<button>-->
-                                    <a href="DeleteProducts?productID=<%=list.get(i).getProduct().getProductID()%>&size=<%=list.get(i).getSize()%>">
+                                    <a href="">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
-                                    <!--</button>-->
                                 </td>
                             </tr>
-                            <%
-                                row++;
-                                }
-                            %>
                         </tbody>
                     </table>
                 </div>

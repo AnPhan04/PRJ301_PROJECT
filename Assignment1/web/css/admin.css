@@ -97,7 +97,7 @@ li {
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-    width: 50%;
+    width: 100%;
 }
 
 /* Change background color of buttons on hover */
@@ -166,4 +166,17 @@ tbody tr {
 
 .prod-link {
     margin: 0 0.75rem;
+}
+
+.prod-link a {
+    text-decoration: none;
+}
+
+i {
+    width: 10.5px;
+    height: 14px;
+}
+
+.sidebar-menu i {
+    color: grey;
 }

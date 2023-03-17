@@ -15,6 +15,7 @@ public class Product {
     String[] productImg;
     double price;
     int size;
+    String img;
 
     public Product() {
     }
@@ -54,6 +55,14 @@ public class Product {
         this.productName = productName;
         this.productImg = productImg;
         this.price = price;
+    }
+
+    public Product(int cateID, String productID, String productName, double price, String img) {
+        this.cateID = cateID;
+        this.productID = productID;
+        this.productName = productName;
+        this.price = price;
+        this.img = img;
     }
 
     public int getCateID() {

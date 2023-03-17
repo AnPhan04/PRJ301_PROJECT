@@ -22,6 +22,27 @@ import org.apache.tomcat.jakartaee.bcel.Const;
  */
 public class DAOItem extends ConnectDB {
 
+    public int addItem(Item item) {
+        int row = 0;
+        try {
+            ConnectDB db = new ConnectDB();
+            if (db.conn != null) {
+                Statement st = db.conn.createStatement();
+                String sql = "INSERT INTO Prod_Variant(size, stock, prodID)\n"
+                        + "VALUES( " + item.getSize()
+                        + "," + item.getQuantity()
+                        + ", '" + item.getProduct().getProductID() + "')";
+                row = st.executeUpdate(sql);
+                st.close();
+                db.conn.close();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            row = -1;
+        }
+        return row;
+    }
+
     public int deleteItem(String productID, int size) {
         int row = 0;
         try {
