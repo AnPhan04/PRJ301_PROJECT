@@ -1,7 +1,7 @@
 <%-- 
     Document   : Cart
-    Created on : Mar 12, 2023, 11:32:45 PM
-    Author     : ASUS
+    Created on : Mar 8, 2023, 3:51:40 PM
+    Author     : Tran Tuan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -184,12 +184,14 @@
                     <c:forEach items="${o.items}" var="i">
                         <tr>
                             <td>
-                                <form action="ProcessServlet" method="post">
+                               <%-- <form action="ProcessServlet" method="post">
                                     <input type="hidden" name="id" value="${i.product.productID}"/>
                                     <input type="hidden" name="size" value="${i.size}"/>
                                     <input type="submit" value="Xóa" />
-
+                                    
                                 </form>
+                               --%>
+                                <a href="RemoveProduct?id=${i.product.productID}&size=${i.size}"><i class="fas fa-trash-alt"></i></a>    
                             </td>
                             <td><img src="${i.product.productImg[0]}" alt=""></td>
                             <td><h5>${i.product.productName}</h5></td>
@@ -213,7 +215,7 @@
                         <h5>COUPON</h5>
                         <p>Mã Giảm Giá</p>
                         <input type="text" placeholder="Nhập">
-                        <button>Nhập mã</button>
+                        <button style="background:black;color:white;padding: 5px;" >Nhập mã</button>
                     </div>
                 </div>
                 <div class="total col-lg-6 col-md-6 col-12 mb-4">
@@ -232,7 +234,9 @@
                             <h6>Tổng đơn hàng</h6>
                             <p><fmt:formatNumber pattern="##.#" value="${requestScope.total}"/></p>
                         </div>
-                        <button class="ml-auto">Thanh Toán Ngay</button>
+                        <a href="GiaoHang.jsp" style="display: flex;margin:0px 30px;justify-content: flex-end;text-decoration: none;">
+                            <button class="ml-auto" style="background:black;color:white;padding: 5px;">Thanh Toán Ngay</button>
+                        </a>
                     </div>
                 </div>
             </div>                     
@@ -343,11 +347,14 @@
                 </div>
             </div>
         </div>
+
+
+
+
         <script src="js/1.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
     </body>
 
 </html>                         
-
 
